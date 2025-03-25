@@ -1,14 +1,16 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 export const Route = createRootRoute({
   component: () => (
     <>
-      <header></header>
-      <main>
+      <Header />
+      <main className="min-h-screen pt-16">
         <Outlet />
       </main>
-      <footer></footer>
+      <Footer />
       <TanStackRouterDevtools />
     </>
   ),
