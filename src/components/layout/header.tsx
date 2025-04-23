@@ -1,5 +1,12 @@
 import React from "react";
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "lucide-react";
@@ -19,7 +26,7 @@ export function Header({ className }: HeaderProps) {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    
+
     if (newTheme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
@@ -35,14 +42,19 @@ export function Header({ className }: HeaderProps) {
   };
 
   return (
-    <header className={cn("fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b", className)}>
+    <header
+      className={cn(
+        "fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b",
+        className
+      )}
+    >
       <div className="container mx-auto flex items-center justify-between h-16 px-4">
         <div className="font-bold text-xl">Lucien Lu</div>
-        
+
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink 
+              <NavigationMenuLink
                 className="cursor-pointer"
                 onClick={() => scrollToSection("hero")}
               >
@@ -50,7 +62,7 @@ export function Header({ className }: HeaderProps) {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink 
+              <NavigationMenuLink
                 className="cursor-pointer"
                 onClick={() => scrollToSection("about")}
               >
@@ -58,7 +70,7 @@ export function Header({ className }: HeaderProps) {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink 
+              <NavigationMenuLink
                 className="cursor-pointer"
                 onClick={() => scrollToSection("skills")}
               >
@@ -66,7 +78,7 @@ export function Header({ className }: HeaderProps) {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink 
+              <NavigationMenuLink
                 className="cursor-pointer"
                 onClick={() => scrollToSection("projects")}
               >
@@ -74,7 +86,7 @@ export function Header({ className }: HeaderProps) {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink 
+              <NavigationMenuLink
                 className="cursor-pointer"
                 onClick={() => scrollToSection("experience")}
               >
@@ -82,7 +94,7 @@ export function Header({ className }: HeaderProps) {
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink 
+              <NavigationMenuLink
                 className="cursor-pointer"
                 onClick={() => scrollToSection("contact")}
               >
@@ -91,7 +103,7 @@ export function Header({ className }: HeaderProps) {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        
+
         {/* Mobile Navigation */}
         <div className="md:hidden">
           <NavigationMenu>
@@ -100,37 +112,37 @@ export function Header({ className }: HeaderProps) {
                 <NavigationMenuTrigger>Menu</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="flex flex-col gap-2 p-4 w-[200px]">
-                    <NavigationMenuLink 
+                    <NavigationMenuLink
                       className="cursor-pointer"
                       onClick={() => scrollToSection("hero")}
                     >
                       Home
                     </NavigationMenuLink>
-                    <NavigationMenuLink 
+                  <NavigationMenuLink
                       className="cursor-pointer"
                       onClick={() => scrollToSection("about")}
                     >
                       About
                     </NavigationMenuLink>
-                    <NavigationMenuLink 
+                    <NavigationMenuLink
                       className="cursor-pointer"
                       onClick={() => scrollToSection("skills")}
                     >
                       Skills
                     </NavigationMenuLink>
-                    <NavigationMenuLink 
+                    <NavigationMenuLink
                       className="cursor-pointer"
                       onClick={() => scrollToSection("projects")}
                     >
                       Projects
                     </NavigationMenuLink>
-                    <NavigationMenuLink 
+                    <NavigationMenuLink
                       className="cursor-pointer"
                       onClick={() => scrollToSection("experience")}
                     >
                       Experience
                     </NavigationMenuLink>
-                    <NavigationMenuLink 
+                    <NavigationMenuLink
                       className="cursor-pointer"
                       onClick={() => scrollToSection("contact")}
                     >
@@ -142,12 +154,12 @@ export function Header({ className }: HeaderProps) {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        
-        <Button 
-          variant="ghost" 
-          size="icon" 
+
+        <Button
+          variant="ghost"
+          size="icon"
           onClick={toggleTheme}
-          className="ml-4"
+          className="ml-4 cursor-pointer"
         >
           {theme === "light" ? (
             <MoonIcon className="h-5 w-5" />
