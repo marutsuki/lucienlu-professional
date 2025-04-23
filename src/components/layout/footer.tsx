@@ -1,4 +1,3 @@
-import React from "react";
 import { cn } from "@/lib/utils";
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
 

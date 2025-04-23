@@ -1,7 +1,6 @@
 import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 
 interface SkillCategory {
   name: string;
