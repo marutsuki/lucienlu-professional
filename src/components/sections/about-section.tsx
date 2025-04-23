@@ -12,16 +12,21 @@ export function AboutSection() {
             <AvatarFallback>LL</AvatarFallback>
           </Avatar>
 
-          <h3 className="text-2xl font-semibold mb-4">Lucien Lu</h3>
+          <h3 className="text-2xl font-semibold mb-4">
+            Lucien Lu
+            <small className="ml-2 text-muted-foreground text-sm">
+              Software Engineer / Scrum Master
+            </small>
+          </h3>
           <p className="text-muted-foreground mb-6">
-            Full Stack Developer with 4+ years of experience building web
+            Full Stack Developer with 3+ years of experience building web
             applications.
           </p>
 
           <div className="grid grid-cols-2 gap-4 w-full">
             <div>
               <h4 className="font-medium">Location</h4>
-              <p className="text-muted-foreground">Sydney, Australia</p>
+              <p className="text-muted-foreground">Melbourne, Australia</p>
             </div>
             <div>
               <h4 className="font-medium">Email</h4>
@@ -33,7 +38,7 @@ export function AboutSection() {
             </div>
             <div>
               <h4 className="font-medium">Experience</h4>
-              <p className="text-muted-foreground">4+ Years</p>
+              <p className="text-muted-foreground">3+ Years</p>
             </div>
           </div>
         </div>
