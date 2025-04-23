@@ -13,34 +13,25 @@ export function Footer({ className }: FooterProps) {
           <div className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Lucien Lu. All rights reserved.
           </div>
-          
+
           <div className="flex items-center gap-4">
-            <a 
-              href="https://github.com" 
-              target="_blank" 
+            <a
+              href="https://github.com/marutsuki"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <GithubIcon className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </a>
-            <a 
-              href="https://linkedin.com" 
-              target="_blank" 
+            <a
+              href="https://linkedin.com/in/lucienlu7789"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
               <LinkedinIcon className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
-            </a>
-            <a 
-              href="https://twitter.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <TwitterIcon className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
             </a>
           </div>
         </div>
