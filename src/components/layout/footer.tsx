@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "lucide-react";
 
 interface FooterProps {
   className?: string;
