@@ -30,8 +30,9 @@ export function HeroSection() {
           Full Stack Developer
         </h2>
         <p className="text-lg max-w-2xl mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-          I build elegant, responsive, and performant web applications with
-          modern technologies. Specializing in React, TypeScript, and Node.js.
+          I'm a guy who writes simple code that follows SOLID principles.
+          <br />
+          We scale when we must, not when we can.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
           <Button size="lg" variant="outline" onClick={scrollToAbout}>

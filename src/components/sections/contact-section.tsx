@@ -1,4 +1,3 @@
-import React from "react";
 import { Section } from "@/components/layout/section";
 import {
   Card,
@@ -14,7 +13,6 @@ import {
   MapPinIcon,
   LinkedinIcon,
   GithubIcon,
-  TwitterIcon,
 } from "lucide-react";
 
 export function ContactSection() {
@@ -25,7 +23,7 @@ export function ContactSection() {
           <CardHeader>
             <CardTitle>Get In Touch</CardTitle>
             <CardDescription>
-              Feel free to reach out if you're looking for a developer, have a
+              Feel free to reach out if you're looking for an engineer, have a
               question, or just want to connect.
             </CardDescription>
           </CardHeader>
@@ -80,8 +78,8 @@ export function ContactSection() {
           <CardHeader>
             <CardTitle>Work Inquiries</CardTitle>
             <CardDescription>
-              I'm currently available for freelance work and full-time
-              positions.
+              I'm currently available for freelance work. Not open to new
+              full-time roles.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -94,7 +92,6 @@ export function ContactSection() {
             <div className="space-y-4">
               <h4 className="font-medium">What I can help with:</h4>
               <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                <li>Frontend Development</li>
                 <li>Full Stack Development</li>
                 <li>DevOps and Infrastructure Design</li>
                 <li>Web Application Development</li>
