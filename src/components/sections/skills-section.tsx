@@ -1,4 +1,3 @@
-import React from "react";
 import { Section } from "@/components/layout/section";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,21 +10,87 @@ interface SkillCategory {
 
 const skillCategories: SkillCategory[] = [
   {
-    name: "Frontend",
-    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "HTML/CSS", "JavaScript", "Redux", "Vite"]
+    name: "Languages",
+    skills: ["TypeScript", "JavaScript", "Java 21", "Golang", "Python"],
   },
   {
-    name: "Backend",
-    skills: ["Node.js", "Express", "NestJS", "GraphQL", "REST API", "PostgreSQL", "MongoDB", "Firebase"]
+    name: "Frontend",
+    skills: [
+      "React",
+      "Redux",
+      "React Router",
+      "Angular",
+      "Tailwind CSS",
+      "HTML/CSS/SASS",
+      "Vite",
+      "Webpack",
+    ],
+  },
+  {
+    name: "Node.js Backend",
+    skills: ["Express", "Passport", "Socket.io", "Axios", "Mongoose", "Lodash"],
+  },
+  {
+    name: "Java Backend",
+    skills: [
+      "Spring",
+      "Spring MVC",
+      "Spring Data JPA",
+      "Spring Data JDBC",
+      "Spring Security",
+      "Spring Kafka",
+      "Jackson",
+    ],
+  },
+  {
+    name: "Database",
+    skills: [
+      "PostgreSQL",
+      "MongoDB",
+      "Firebase",
+      "Amazon RDS",
+      "Amazon S3",
+      "GCP Cloud Storage",
+      "GCP Cloud SQL",
+    ],
+  },
+  {
+    name: "Testing",
+    skills: [
+      "JUnit 5",
+      "Mockito",
+      "Jest",
+      "Playwright",
+      "React Testing Library",
+      "Selenium",
+    ],
   },
   {
     name: "DevOps & Tools",
-    skills: ["Git", "GitHub Actions", "Docker", "AWS", "CI/CD", "Jest", "Cypress", "Webpack"]
+    skills: [
+      "Git",
+      "GitHub Actions",
+      "Docker",
+      "Bash",
+      "Terraform",
+      "AWS",
+      "GCP",
+      "VSCode",
+      "IntelliJ",
+    ],
   },
   {
     name: "Design & Other",
-    skills: ["Figma", "UI/UX", "Responsive Design", "Accessibility", "Performance Optimization", "SEO", "Agile/Scrum"]
-  }
+    skills: [
+      "UI/UX",
+      "Responsive Design",
+      "Accessibility",
+      "SEO",
+      "Agile/Scrum",
+      "Jira",
+      "Confluence",
+    ],
+  },
 ];
 
 export function SkillsSection() {
@@ -37,7 +102,6 @@ export function SkillsSection() {
             <CardHeader className="pb-3">
               <CardTitle>{category.name}</CardTitle>
             </CardHeader>
-            <Separator />
             <CardContent className="pt-4">
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
