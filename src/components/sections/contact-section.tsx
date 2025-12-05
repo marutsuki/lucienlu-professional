@@ -92,9 +92,9 @@ export function ContactSection() {
             <div className="space-y-4">
               <h4 className="font-medium">What I can help with:</h4>
               <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-                <li>Full Stack Development</li>
-                <li>DevOps and Infrastructure Design</li>
                 <li>Web Application Development</li>
+                <li>DevOps and Infrastructure Design</li>
+                <li>Scaling Existing Software</li>
                 <li>UI/UX Implementation</li>
                 <li>Performance Optimization</li>
               </ul>

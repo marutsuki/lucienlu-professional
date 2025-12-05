@@ -14,93 +14,61 @@ type Experience = {
   company: string;
   location: string;
   period: string;
-  description: string[];
+  accomplishments: string[];
+  prelude?: string;
   technologies: string[];
 };
 
 type ExperienceAtPosition =
   | Experience
-  | {
-      location: string;
-      company: string;
+  | (Omit<
+      Experience,
+      "period" | "technologies" | "title" | "accomplishments"
+    > & {
       positions: Omit<Experience, "company" | "location">[];
-    };
+    });
 
 interface Education {
   degree: string;
   institution: string;
   location: string;
   period: string;
-  description?: string[];
+  accomplishments?: string[];
 }
 
 const experiences: ExperienceAtPosition[] = [
   {
     company: "Qoria",
     location: "Melbourne, Australia",
-    positions: [
-      {
-        title: "Software Engineer / Scrum Master",
-        period: "Apr 2025 - Current",
-        description: ["Description to be added"],
-        technologies: [
-          "Java",
-          "Spring Web",
-          "JOOQ",
-          "Immutables",
-          "Google OAuth2",
-          "Angular",
-          "TypeScript",
-          "HTML/CSS/SASS",
-          "JUnit 5",
-          "Playwright",
-          "Postgres SQL",
-          "Terraform",
-          "Docker",
-        ],
-      },
-      {
-        title: "Software Engineer - Project 2",
-        period: "Feb 2025 - Apr 2025",
-        description: [
-          "Integral core member responsible for the full stack development of critical Postgres/Java Spring/Angular app",
-          "Configured and addressed issues in the infrastructure of application systems through Terraform",
-          "Protected the trust of customers by servicing and fixing production data malformations",
-        ],
-        technologies: [
-          "Java",
-          "Spring Web",
-          "JOOQ",
-          "Immutables",
-          "Angular",
-          "TypeScript",
-          "HTML/CSS/SASS",
-          "JUnit 5",
-          "Mockito",
-          "Postgres SQL",
-          "Terraform",
-        ],
-      },
-      {
-        title: "Software Engineer - Project 1",
-        period: "Oct 2024 - Feb 2025",
-        description: [
-          "Responsible alongside 2 other devs of a small team for kickstarting a brand new machine learning based web solution",
-          "Carefully crafted an extensible yet compiler-safe frontend testing framework around playwright using smart TypeScript types",
-        ],
-        technologies: [
-          "Golang",
-          "Google OAuth2",
-          "React",
-          "React Router",
-          "Zustand",
-          "TypeScript",
-          "HTML/CSS/SASS",
-          "Playwright",
-          "Postgres SQL",
-          "Docker",
-        ],
-      },
+    title: "Software Engineer",
+    period: "Oct 2024 - Current",
+    prelude:
+      "Core developer and the scrum master of a small agile team fully managing the development, testing and deployment of a B2B micro-services and micro-frontend system.",
+    accomplishments: [
+      "Engineered a smart partitioning system using Gradle and the JUnit Platform to create parallel isolated testing environments for a bottleneck test suite, which reduced the pipeline time from 45 mins to just 16 mins",
+      "Single-handedly scaffolded and implemented the first version of our CI/CD pipeline with SonarQube support using GCP Cloud Build, Cloud Deploy, Skaffold and Terraform, reducing developer overhead per release from over 2 hrs to under 5 mins",
+      "Designed an extremely compiler-safe and type smart UI based testing framework built around Playwright which was the catalyst for frontend test coverage being increased from 0% to 81%",
+      "Developed 6 unique Jira automations and 3 Google App Scripts to streamline team processes, saving an estimated 8 hrs of manual work per week across the team",
+    ],
+    technologies: [
+      "Java",
+      "Spring Web",
+      "JOOQ",
+      "Golang",
+      "Immutables",
+      "Google OAuth2",
+      "Angular",
+      "React",
+      "React Router",
+      "Zustand",
+      "TypeScript",
+      "Chakra UI",
+      "HTML/CSS/SASS",
+      "JUnit 5",
+      "Playwright",
+      "Postgres SQL",
+      "Terraform",
+      "Docker",
     ],
   },
   {
@@ -108,40 +76,49 @@ const experiences: ExperienceAtPosition[] = [
     company: "Thales Australia",
     location: "Melbourne, Australia",
     period: "Feb 2023 - Oct 2024",
-    description: [
-      `Demonstrated expertise across both backend and frontend development, leading the successful 
-        delivery of over 20+ validated features`,
-      "Trusted as a core reviewer, I reviewed more than 160 pull requests, ensuring code quality and consistency",
-      "Drafted and implemented software solution redesigns to address existing overengineered code and anti-patterns, enhancing the robustness and maintainability of the app",
-      "Mitigated technical debt by resolving over 400 ESLint issues",
+    prelude:
+      "A long-serving full-stack developer on a multi-backend, graphical frontend web application. Known for single-handedly creating the core WebGL graphics engine.",
+    accomplishments: [
       "Migrated our BitBucket/Jenkins/Artifactory setup to a cloud-based GitLab solution, improving CI/CD scalability and cutting build times from 45 to 20 minutes through parallelized testing",
-      "Revamping our CI pipeline for expedited delivery times by optimizing Jenkins parallelism and mitigating gradle inter-project dependencies",
+      "Ensured every owned initiative/feature had above 90% integration test coverage and 0 SonarQube warnings, leading to a low QA fail rate of 10%",
+      "Proposed and owned a code quality improvement initiative targeted at over-engineered code and anti-patterns, which reduced the backend binary size from 3.5MB to 2MB, frontend bundle size from 1.2MB to 0.9MB and brought down SonarQube warnings from (5 CRITICAL, 40 HIGH, 120 MEDIUM) to (0 CRITICAL, 0 HIGH, 0 MEDIUM)",
+      "Improved the average FPS of a CPU bound WebGL application from 45 to 55 through an innovative optimization using bit manipulations, allowing for a noticeably smoother user experience",
+      "Single-handledly developed and maintained the application's main WebGL graphics engine, which has become the fundamental core dependency and building block for over 25+ graphical features",
     ],
     technologies: [
-      "Java 8",
+      "React",
+      "Redux",
+      "WebGL",
+      "TypeScript",
+      "Styled Components",
+      "HTML/CSS/SASS",
+      "Java 17",
       "Spring Web",
-      "Spring JDBC",
+      "Spring Kafka",
+      "gRPC",
+      "Protobuf",
       "JUnit 5",
       "Mockito",
-      "Oracle SQL",
-      "Oracle DB",
+      "Cucumber",
+      "Selenium",
       "Jenkins",
-      "ServiceNow",
-      "Microsoft Excel",
+      "GitLab CI",
+      "Artifactory",
+      "Docker",
     ],
   },
   {
     company: "National Australia Bank",
     location: "Melbourne, Australia",
+    prelude:
+      "A multi-faceted role with a primary focus on backend system development and support. I was promoted pre-emptively from the internship and became a critical team member.",
     positions: [
       {
         title: "Software Engineer",
         period: "Dec 2021 - Apr 2022",
-        description: [
-          "Specialized in the development of robust Spring and Spring Boot applications, contributing to EOD batch projects spanning multiple areas within the organization",
-          "Drafted QA testing plans and requirements via qTest",
-          "Reactively supported the critical system through implementations of service requests and production changes",
-          "Documentation of system architecture covering interactions with downstream & upstream",
+        accomplishments: [
+          "Spearheaded the development of a third party integration with our EOD batch job applications, resulting in an expansion of the functional capability of the software and reduced manual workload by 1 hr per week",
+          "Elevated automation test coverage from 80% to 95%, significantly boosting application reliability and reducing post-deployment defects",
         ],
         technologies: [
           "Java 8",
@@ -158,12 +135,9 @@ const experiences: ExperienceAtPosition[] = [
       },
       {
         title: "Software Engineer Intern",
-        period: "July 2021 - Dec 2021",
-        description: [
-          "Self-autonomous development of Spring based applications",
-          "Extended test coverage of the many microservices owned by the team",
-          "Successfully led the migration of XML-based Spring applications to annotation-based Spring",
-          "Documentation of system architecture covering interactions with downstream & upstream",
+        period: "Jul 2021 - Dec 2021",
+        accomplishments: [
+          "Upgraded legacy of XML-based configurational Spring applications to the latest Spring version, clearing over 15+ security vulnerabilities in the process",
         ],
         technologies: [
           "Java 8",
@@ -183,11 +157,11 @@ const experiences: ExperienceAtPosition[] = [
     title: "Data Engineer Intern",
     company: "Tata Consultancy Services",
     location: "Melbourne, Australia",
-    period: "June 2021 - July 2021",
-    description: [
-      "Developed a full stack development of Proof of Concept Node.js application",
-      "Delivered a promising presentation to stakeholders leading to the acceptance of the POC",
-      "Adopted a reactive mindset by frequently seeking application quality feedback from stakeholders",
+    period: "Jun 2021 - Jul 2021",
+    prelude:
+      "A fast-paced internship working for a major client in the electric power industry.",
+    accomplishments: [
+      "Solo-developed a complete Proof of Concept Node.js application over a tight timeline of 2 months with full ownership of the entire stack, which validated the feasibility of moving critical legacy data ingestion flows to a modern stack",
     ],
     technologies: ["Node.js", "JavaScript", "HTML/CSS", "SAP HANA", "SAPUI5"],
   },
@@ -196,12 +170,11 @@ const experiences: ExperienceAtPosition[] = [
     company: "The University of Melbourne",
     location: "Melbourne, Australia",
     period: "Jan 2021 - Mar 2021",
-    description: [
-      "One of the core tutors for the university course COMP10001 - Foundations of Computing",
-      "Led 4 one hour workshops per week via Zoom, catering to on average 30 students per session",
-      "Provided personalized support to students by holding regular consultation sessions and responding to queries via email",
-      "Drafted and alongside the rest of the teaching team, designed the assessment and examination content",
-      "Marked and graded assessments and exams whilst providing constructive feedback to students",
+    prelude:
+      "The role that sparked my passion in tutoring and teaching software development.",
+    accomplishments: [
+      "Designed and authored subject content and high-stakes assessments (mid-semester and final exams) for an introductory computing course",
+      "Responsible for teaching 4 workshop sessions a week with 15-30 students per class, guiding them through their journey learning Python",
     ],
     technologies: ["Python", "Zoom"],
   },
@@ -209,16 +182,15 @@ const experiences: ExperienceAtPosition[] = [
 
 const education: Education[] = [
   {
-    degree: "Bachelor of Science",
+    degree: "Bachelor of Science - Computing and Software Systems",
     institution: "The University of Melbourne",
     location: "Melbourne, Australia",
     period: "2019 - 2022",
-    description: [
-      "Dean's Honours List 2023",
-      "Specialized in Computing and Software Systems",
-      "Tutored VCE Mathematics Methods and Specialist Mathematics",
-      "Member of the Competitive Programming Club",
-      "Member of the Language Exchange Club",
+    accomplishments: [
+      "Dean's Honours List (Third Year) - Awarded to undergraduate students in the top 3% of their year level",
+      "New Colombo Plan Scholarship - an Australian Government initiative for high-achieving undergraduate students to study, intern, and undertake courses in the Indo-Pacific region",
+      "Competitive Programming Club",
+      "Language Exchange Club",
     ],
   },
   {
@@ -226,7 +198,7 @@ const education: Education[] = [
     institution: "Camberwell Grammar School",
     location: "Melbourne, Australia",
     period: "2013 - 2018",
-    description: [
+    accomplishments: [
       "Studied VCE Mathematics Methods, Specialist Mathematics, Accounting, Chemistry and English",
       "Volunteered at a senior daycare centre",
       "Volunteered teaching various subjects to a local primary school",
@@ -249,6 +221,11 @@ export function ExperienceSection() {
                     <CardDescription className="text-base">
                       {exp.location}
                     </CardDescription>
+                    {exp.prelude && (
+                      <CardDescription className="mt-2 text-sm italic">
+                        {exp.prelude}
+                      </CardDescription>
+                    )}
                   </div>
                 </CardHeader>
                 {exp.positions.map((position) => (
@@ -257,9 +234,9 @@ export function ExperienceSection() {
                       <CardTitle>{position.title}</CardTitle>
                       <Badge variant="outline">{position.period}</Badge>
                     </div>
-                    <CardContent>
+                    <CardContent className="max-w-10/12">
                       <ul className="list-disc pl-5 space-y-1 mb-4">
-                        {position.description.map((item, i) => (
+                        {position.accomplishments.map((item, i) => (
                           <li key={i} className="text-muted-foreground">
                             {item}
                           </li>
@@ -285,6 +262,11 @@ export function ExperienceSection() {
                       <CardDescription className="text-base">
                         {exp.company} • {exp.location}
                       </CardDescription>
+                      {exp.prelude && (
+                        <CardDescription className="mt-2 text-sm italic">
+                          {exp.prelude}
+                        </CardDescription>
+                      )}
                     </div>
                     <Badge
                       variant="outline"
@@ -294,9 +276,9 @@ export function ExperienceSection() {
                     </Badge>
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="max-w-10/12">
                   <ul className="list-disc pl-5 space-y-1 mb-4">
-                    {exp.description.map((item, i) => (
+                    {exp.accomplishments.map((item, i) => (
                       <li key={i} className="text-muted-foreground">
                         {item}
                       </li>
@@ -337,16 +319,15 @@ export function ExperienceSection() {
                   </Badge>
                 </div>
               </CardHeader>
-              {edu.description && (
-                <CardContent className="flex flex-col gap-1">
-                  {edu.description.map((item, i) => (
-                    <li
-                      key={i}
-                      className="text-muted-foreground list-disc pl-5"
-                    >
-                      {item}
-                    </li>
-                  ))}
+              {edu.accomplishments && (
+                <CardContent className="px-6">
+                  <ul className="list-disc pl-5 space-y-1 mb-4">
+                    {edu.accomplishments.map((item, i) => (
+                      <li key={i} className="text-muted-foreground list-disc">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               )}
             </Card>
