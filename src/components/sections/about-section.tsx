@@ -19,11 +19,11 @@ export function AboutSection() {
             </small>
           </h3>
           <p className="text-muted-foreground mb-6">
-            Full Stack Developer with 4+ years of experience building web
-            applications.
+            Full Stack Development, DevOps and Infrastructure Design, Reducing
+            Technical Debt
           </p>
 
-          <div className="grid grid-cols-2 gap-4 w-full">
+          <div className="grid grid-cols-2 gap-4 w-full mb-6">
             <div>
               <h4 className="font-medium">Location</h4>
               <p className="text-muted-foreground">Melbourne, Australia</p>

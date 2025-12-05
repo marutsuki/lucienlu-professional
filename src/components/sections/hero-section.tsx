@@ -26,12 +26,10 @@ export function HeroSection() {
           Lucien Lu
         </h1>
         <h2 className="text-2xl md:text-3xl text-muted-foreground mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-          Full Stack Developer
+          Software Engineer
         </h2>
         <p className="text-lg max-w-2xl mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
-          I'm a guy who writes simple code that follows SOLID principles.
-          <br />
-          We scale when we must, not when we can.
+          My code doesn't follow patterns—it proves them.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500">
           <Button size="lg" variant="outline" onClick={scrollToAbout}>

@@ -12,6 +12,7 @@ import { Separator } from "@/components/ui/separator";
 type Experience = {
   title: string;
   company: string;
+  industry: string;
   location: string;
   period: string;
   accomplishments: string[];
@@ -25,11 +26,12 @@ type ExperienceAtPosition =
       Experience,
       "period" | "technologies" | "title" | "accomplishments"
     > & {
-      positions: Omit<Experience, "company" | "location">[];
+      positions: Omit<Experience, "company" | "location" | "industry">[];
     });
 
 interface Education {
   degree: string;
+  grade: string;
   institution: string;
   location: string;
   period: string;
@@ -39,7 +41,8 @@ interface Education {
 const experiences: ExperienceAtPosition[] = [
   {
     company: "Qoria",
-    location: "Melbourne, Australia",
+    industry: "Student Cybersecurity",
+    location: "Richmond, Victoria, Australia",
     title: "Software Engineer",
     period: "Oct 2024 - Current",
     prelude:
@@ -73,8 +76,9 @@ const experiences: ExperienceAtPosition[] = [
   },
   {
     title: "Graduate Software Engineer",
+    industry: "Aerospace and Air Traffic Control",
     company: "Thales Australia",
-    location: "Melbourne, Australia",
+    location: "Southbank, Victoria, Australia",
     period: "Feb 2023 - Oct 2024",
     prelude:
       "A long-serving full-stack developer on a multi-backend, graphical frontend web application. Known for single-handedly creating the core WebGL graphics engine.",
@@ -109,7 +113,8 @@ const experiences: ExperienceAtPosition[] = [
   },
   {
     company: "National Australia Bank",
-    location: "Melbourne, Australia",
+    industry: "Banking and Finance",
+    location: "Melbourne CBD, Victoria, Australia",
     prelude:
       "A multi-faceted role with a primary focus on backend system development and support. I was promoted pre-emptively from the internship and became a critical team member.",
     positions: [
@@ -155,8 +160,9 @@ const experiences: ExperienceAtPosition[] = [
   },
   {
     title: "Data Engineer Intern",
+    industry: "Electricity and Power",
     company: "Tata Consultancy Services",
-    location: "Melbourne, Australia",
+    location: "Melbourne CBD, Victoria, Australia",
     period: "Jun 2021 - Jul 2021",
     prelude:
       "A fast-paced internship working for a major client in the electric power industry.",
@@ -166,9 +172,10 @@ const experiences: ExperienceAtPosition[] = [
     technologies: ["Node.js", "JavaScript", "HTML/CSS", "SAP HANA", "SAPUI5"],
   },
   {
-    title: "University Tutor",
+    title: "Academic Tutor",
+    industry: "Education",
     company: "The University of Melbourne",
-    location: "Melbourne, Australia",
+    location: "Parkville, Victoria, Australia",
     period: "Jan 2021 - Mar 2021",
     prelude:
       "The role that sparked my passion in tutoring and teaching software development.",
@@ -183,25 +190,27 @@ const experiences: ExperienceAtPosition[] = [
 const education: Education[] = [
   {
     degree: "Bachelor of Science - Computing and Software Systems",
+    grade: "H1/HD",
     institution: "The University of Melbourne",
-    location: "Melbourne, Australia",
+    location: "Parkville, Victoria, Australia",
     period: "2019 - 2022",
     accomplishments: [
       "Dean's Honours List (Third Year) - Awarded to undergraduate students in the top 3% of their year level",
-      "New Colombo Plan Scholarship - an Australian Government initiative for high-achieving undergraduate students to study, intern, and undertake courses in the Indo-Pacific region",
+      "New Colombo Plan Scholarship - an Australian Government initiative and fund for high-achieving undergraduate students to study, intern, and undertake courses in the Indo-Pacific region",
       "Competitive Programming Club",
       "Language Exchange Club",
     ],
   },
   {
     degree: "High School Graduate",
+    grade: "93.00 ATAR",
     institution: "Camberwell Grammar School",
-    location: "Melbourne, Australia",
+    location: "Camberwell, Victoria, Australia",
     period: "2013 - 2018",
     accomplishments: [
-      "Studied VCE Mathematics Methods, Specialist Mathematics, Accounting, Chemistry and English",
-      "Volunteered at a senior daycare centre",
-      "Volunteered teaching various subjects to a local primary school",
+      "VCE Mathematics Methods, Specialist Mathematics, Accounting, Chemistry and English",
+      "Volunteering at a senior daycare centre",
+      "Volunteering academic tutor, teaching various subjects to a local primary school",
     ],
   },
 ];
@@ -211,16 +220,20 @@ export function ExperienceSection() {
     <Section id="experience" title="Experience">
       <div className="space-y-10">
         <div className="space-y-6">
-          <h3 className="text-2xl font-semibold">Work Experience</h3>
+          <h3 className="text-2xl font-semibold">Career</h3>
           {experiences.map((exp, index) =>
             "positions" in exp ? (
-              <Card key={index} className="flex flex-col gap-4">
+              <Card key={index} className="flex flex-col gap-2">
                 <CardHeader>
                   <div>
-                    <CardTitle className="text-base">{exp.company}</CardTitle>
-                    <CardDescription className="text-base">
+                    <div className="flex flex-row justify-between items-baseline">
+                      <h4 className="text-base">{exp.company}</h4>
+                      <small>{exp.industry}</small>
+                    </div>
+                    <small className="text-muted-foreground font-semibold">
                       {exp.location}
-                    </CardDescription>
+                    </small>
+
                     {exp.prelude && (
                       <CardDescription className="mt-2 text-sm italic">
                         {exp.prelude}
@@ -228,52 +241,60 @@ export function ExperienceSection() {
                     )}
                   </div>
                 </CardHeader>
-                {exp.positions.map((position) => (
-                  <div>
-                    <div className="flex justify-between mx-6">
-                      <CardTitle>{position.title}</CardTitle>
-                      <Badge variant="outline">{position.period}</Badge>
-                    </div>
-                    <CardContent className="max-w-10/12">
-                      <ul className="list-disc pl-5 space-y-1 mb-4">
-                        {position.accomplishments.map((item, i) => (
-                          <li key={i} className="text-muted-foreground">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {position.technologies.map((tech) => (
-                          <Badge key={tech} variant="secondary">
-                            {tech}
-                          </Badge>
-                        ))}
+                <div className="flex flex-col gap-4">
+                  {exp.positions.map((position) => (
+                    <div>
+                      <div className="flex justify-between mx-6 items-baseline">
+                        <CardTitle>{position.title}</CardTitle>
+                        <Badge variant="outline">{position.period}</Badge>
                       </div>
-                    </CardContent>
-                  </div>
-                ))}
+                      <CardContent className="max-w-10/12">
+                        <ul className="list-disc pl-5 space-y-1 mb-4">
+                          {position.accomplishments.map((item, i) => (
+                            <li key={i} className="text-muted-foreground">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {position.technologies.map((tech) => (
+                            <Badge key={tech} variant="secondary">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </div>
+                  ))}
+                </div>
               </Card>
             ) : (
-              <Card key={index}>
+              <Card key={index} className="flex flex-col gap-0">
                 <CardHeader>
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+                  <div className="md:flex-row md:justify-between md:items-start">
                     <div>
-                      <CardTitle>{exp.title}</CardTitle>
-                      <CardDescription className="text-base">
-                        {exp.company} • {exp.location}
-                      </CardDescription>
+                      <div className="flex flex-row justify-between items-baseline">
+                        <h4 className="text-base">{exp.company}</h4>
+                        <small>{exp.industry}</small>
+                      </div>
+                      <small className="text-muted-foreground font-semibold">
+                        {exp.location}
+                      </small>
                       {exp.prelude && (
                         <CardDescription className="mt-2 text-sm italic">
                           {exp.prelude}
                         </CardDescription>
                       )}
                     </div>
-                    <Badge
-                      variant="outline"
-                      className="md:self-start self-start w-fit"
-                    >
-                      {exp.period}
-                    </Badge>
+                    <div className="flex flex-row justify-between items-baseline">
+                      <CardTitle className="mt-4">{exp.title}</CardTitle>
+                      <Badge
+                        variant="outline"
+                        className="md:self-start self-start w-fit"
+                      >
+                        {exp.period}
+                      </Badge>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent className="max-w-10/12">
@@ -320,14 +341,26 @@ export function ExperienceSection() {
                 </div>
               </CardHeader>
               {edu.accomplishments && (
-                <CardContent className="px-6">
-                  <ul className="list-disc pl-5 space-y-1 mb-4">
-                    {edu.accomplishments.map((item, i) => (
-                      <li key={i} className="text-muted-foreground list-disc">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                <CardContent className="px-6 flex flex-col gap-2 max-w-10/12">
+                  <div>
+                    <small className="text-muted-foreground font-semibold">
+                      Grade
+                    </small>
+                    <p className="text-muted-foreground">{edu.grade}</p>
+                  </div>
+
+                  <div>
+                    <small className="text-muted-foreground font-semibold">
+                      Notes
+                    </small>
+                    <ul className="list-disc pl-5 space-y-1 mb-4">
+                      {edu.accomplishments.map((item, i) => (
+                        <li key={i} className="text-muted-foreground list-disc">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </CardContent>
               )}
             </Card>

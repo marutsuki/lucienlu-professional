@@ -65,11 +65,12 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    name: "DevOps & Tools",
+    name: "DevOps, IaC & Tools",
     skills: [
       "Git",
       "GitHub Actions",
       "Docker",
+      "K8s",
       "Bash",
       "Terraform",
       "AWS",
@@ -98,10 +99,10 @@ export function SkillsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {skillCategories.map((category) => (
           <Card key={category.name} className="overflow-hidden">
-            <CardHeader className="pb-3">
+            <CardHeader className="pb-2">
               <CardTitle>{category.name}</CardTitle>
             </CardHeader>
-            <CardContent className="pt-4">
+            <CardContent>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <Badge key={skill} variant="secondary">
