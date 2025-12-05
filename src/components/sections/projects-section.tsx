@@ -120,7 +120,7 @@ const projects: Project[] = [
   {
     title: "Modelling Portfolio",
     description:
-      "My my modelling portfolio, one of the things I wanted to try out a while back was professional modelling, this portfolio was used to apply to various different modelling agencies.",
+      "My modelling portfolio, one of the things I wanted to try out a while back was professional modelling, this portfolio was used to apply to various different modelling agencies.",
     image: "/modelling-portfolio.jpeg",
     technologies: [
       "React 18",
